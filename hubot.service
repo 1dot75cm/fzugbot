@@ -1,0 +1,19 @@
+[Unit]
+Description=Hubot
+After=network.target
+
+[Service]
+Type=simple
+#User=hubot
+#Group=hubot
+WorkingDirectory=/path/to/hubot
+Environment=HUBOT_GITTER2_TOKEN=xxx
+ExecStart=/path/to/hubot/bin/hubot --adapter gitter2
+Restart=on-failure
+RestartSec=10
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
